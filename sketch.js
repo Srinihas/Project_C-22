@@ -19,17 +19,19 @@ function preload(){
   swordImg = loadImage("sword.png");
   //write a code to load the image named gameOver.png
   gameoverImg = loadImage("gameOver.png");
-  gameover = createSprite(200, 300);
-  gameover.addImage(gameoverImg);
-  gameover.scale = 0.5;
-  gameover.visible = false;
 }
 
 function setup(){  
   createCanvas(400,600);
   // Moving background
+
+  gameover = createSprite(200, 300);
+  gameover.addImage(gameoverImg);
+  gameover.scale = 0.5;
+  gameover.visible = false;
+
     
-  path=createSprite(200,200);
+  path = createSprite(200,200);
   path.addImage(pathImg);
   path.velocityY = 4;
 
@@ -37,7 +39,7 @@ function setup(){
   //creating boy running
   boy = createSprite(70,580,20,20);
   boy.addAnimation("SahilRunning",boyImg);
-  boy.scale=0.08;
+  boy.scale = 0.08;
     
 
   cashG=new Group();
@@ -50,17 +52,19 @@ function setup(){
 function draw() {
 
   if(gameState===PLAY){
-  background(0);
-  boy.x = World.mouseX;
   
-  edges= createEdgeSprites();
-  boy.collide(edges);
+    background(0);
+  
+    boy.x = World.mouseX;
+  
+    edges = createEdgeSprites();
+    boy.collide(edges);
   
   //code to reset the background
-  if(path.y > 400 ){
-    path.y = height/2;
-  }
-  
+    if(path.y > 400 ){
+      path.y = height/2;
+    }
+    
     createCash();
     createDiamonds();
     createJwellery();
@@ -76,11 +80,11 @@ function draw() {
       
     } else if (jwelleryG.isTouching(boy)) {
       jwelleryG.destroyEach();
-      treasureCollection= treasureCollection + 150;
+      treasureCollection = treasureCollection + 150;
       
     } else {
-      if(swordGroup.isTouching(boy)) {
-        gameState=END;
+      if (swordGroup.isTouching(boy)) {
+        gameState = END;
         cashG.destroyEach();
         diamondsG.destroyEach();
         jwelleryG.destroyEach();
