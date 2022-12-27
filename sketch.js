@@ -91,7 +91,6 @@ function draw() {
         jwelleryG.setVelocityYEach(0);
         swordGroup.setVelocityYEach(0);
         gameover.visible = true;
-        print();
       }
     }
   drawSprites();
