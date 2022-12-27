@@ -1,14 +1,14 @@
-var path,boy,cash,diamonds,jwellery,sword;
-var pathImg,boyImg,cashImg,diamondsImg,jwelleryImg,swordImg;
+var path, boy, cash, diamonds, jwellery, sword;
+var pathImg, boyImg, cashImg, diamondsImg, jwelleryImg, swordImg;
 var treasureCollection = 0;
 var gameoverImg;
-var cashG,diamondsG,jwelleryG,swordGroup;
-let gameover;
+var cashG, diamondsG, jwelleryG, swordGroup;
+var gameover;
 
 //Game States
-var PLAY=1;
-var END=0;
-var gameState=1;
+var PLAY = 1;
+var END = 0;
+var gameState = 1;
 
 function preload(){
   pathImg = loadImage("Road.png");
@@ -69,16 +69,16 @@ function draw() {
     if (cashG.isTouching(boy)) {
       cashG.destroyEach();
       treasureCollection=treasureCollection+50;
-    }
-    else if (diamondsG.isTouching(boy)) {
+    
+    } else if (diamondsG.isTouching(boy)) {
       diamondsG.destroyEach();
       treasureCollection=treasureCollection+100;
       
-    }else if(jwelleryG.isTouching(boy)) {
+    } else if (jwelleryG.isTouching(boy)) {
       jwelleryG.destroyEach();
       treasureCollection= treasureCollection + 150;
       
-    }else{
+    } else {
       if(swordGroup.isTouching(boy)) {
         gameState=END;
         cashG.destroyEach();
